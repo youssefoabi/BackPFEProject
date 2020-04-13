@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/fraud-rules")
 public class RulesController {
@@ -34,10 +34,9 @@ public class RulesController {
         return  new ResponseEntity(rulesService.getRulesById(id), HttpStatus.OK);
     }
 
-//    @DeleteMapping("/delete/{id}")
-//    public String deleteRule(@PathVariable long id){
-//        rulesRepository.deleteById(id);
-//        return "delete";
-//    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteRule(@PathVariable String id){
+        return  new ResponseEntity(rulesService.deleteRulesById(id), HttpStatus.OK);
+    }
 }
 

@@ -39,4 +39,12 @@ public class RulesService implements IRulesService {
     public Optional<CreateRuleRequest> getRulesById(String id){
         return  rulesRepository.findById(id);
     }
+
+    @Override
+    public String deleteRulesById(String id) {
+        rulesRepository.deleteById(id);
+        return "Success";
+    }
+
+
 }
