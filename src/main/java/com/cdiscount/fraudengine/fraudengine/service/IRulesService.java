@@ -14,4 +14,6 @@ public interface IRulesService {
     Optional<CreateRuleRequest> getRulesById(String id);
 
     String deleteRulesById(String id);
+
+    CreateRuleResponse updateRule(CreateRuleRequest request);
 }
