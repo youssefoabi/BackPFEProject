@@ -3,15 +3,16 @@ package com.cdiscount.fraudengine.fraudengine.model.request;
 import com.cdiscount.fraudengine.fraudengine.model.Simulation;
 import com.cdiscount.fraudengine.fraudengine.model.CriterionOperatorValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.List;
 
 @Document(collection = "frauderules")
-public class CreateRuleRequest<Criterion> {
-
-
+public class CreateRuleRequest {
+    @Id
+    private String id;
     private String name;
     private Date creationDate;
     private int priority;
@@ -21,11 +22,22 @@ public class CreateRuleRequest<Criterion> {
     private String editedBy;
     private String comment;
     private boolean isActivated;
+
+
+
     private int version;
     private boolean isValidated;
     private String editedAction;
     private List<CriterionOperatorValue> criterionOperatorValues;
     private List<Simulation> simulations;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

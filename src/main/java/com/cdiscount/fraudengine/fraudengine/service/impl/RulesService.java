@@ -1,5 +1,7 @@
 package com.cdiscount.fraudengine.fraudengine.service.impl;
 
+import com.cdiscount.fraudengine.fraudengine.model.CriterionOperatorValue;
+import com.cdiscount.fraudengine.fraudengine.model.Simulation;
 import com.cdiscount.fraudengine.fraudengine.model.request.CreateRuleRequest;
 import com.cdiscount.fraudengine.fraudengine.model.response.CreateRuleResponse;
 import com.cdiscount.fraudengine.fraudengine.repository.IRulesRepository;
@@ -10,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +31,29 @@ public class RulesService implements IRulesService {
         return new CreateRuleResponse(rulesRepository.save(request));
     }
 
+    @Override
+    public CreateRuleResponse updateRule(CreateRuleRequest request) {
+        CreateRuleRequest ruleInDB = rulesRepository.findById(request.getId()).get();
 
+        ruleInDB.setName(request.getName());
+        ruleInDB.setCreationDate(request.getCreationDate());
+        ruleInDB.setPriority(request.getPriority());
+        ruleInDB.setReferentID(request.getReferentID());
+        ruleInDB.setDescription(request.getDescription());
+        ruleInDB.setValidatedBy(request.getValidatedBy());
+        ruleInDB.setEditedBy(request.getEditedBy());
+        ruleInDB.setComment(request.getComment());
+        ruleInDB.setValidated(request.isValidated());
+        ruleInDB.setActivated(request.isActivated());
+        ruleInDB.setVersion(request.getVersion());
+        ruleInDB.setEditedAction(request.getEditedAction());
+        ruleInDB.setCriterionOperatorValues(request.getCriterionOperatorValues());
+        ruleInDB.setSimulations(request.getSimulations());
+
+
+
+        return new CreateRuleResponse(rulesRepository.save(ruleInDB));
+    }
 
     @Override
     public List<CreateRuleRequest> getAllRules() {
@@ -39,4 +64,14 @@ public class RulesService implements IRulesService {
     public Optional<CreateRuleRequest> getRulesById(String id){
         return  rulesRepository.findById(id);
     }
+
+    @Override
+    public String deleteRulesById(String id) {
+        rulesRepository.deleteById(id);
+        return "Success";
+    }
+
+
+
+
 }

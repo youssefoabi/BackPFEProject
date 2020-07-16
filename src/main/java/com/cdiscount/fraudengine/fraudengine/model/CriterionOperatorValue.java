@@ -6,26 +6,26 @@ import java.util.Date;
 
 @Document(collection = "simulation")
 public class CriterionOperatorValue {
-    private String criterionID;
-    private String operatorId;
+    private String criterion;
+    private String operator;
     private Date creationDate;
     private String value;
 
 
-    public String getCriterionID() {
-        return criterionID;
+    public String getCriterion() {
+        return criterion;
     }
 
-    public void setCriterionID(String criterionID) {
-        this.criterionID = criterionID;
+    public void setCriterion(String criterion) {
+        this.criterion = criterion;
     }
 
-    public String getOperatorId() {
-        return operatorId;
+    public String getOperator() {
+        return operator;
     }
 
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 
     public Date getCreationDate() {
