@@ -23,9 +23,10 @@ public class RulesController {
         return  new ResponseEntity(rulesService.createRule(request), HttpStatus.CREATED);
     }
 
+
     @PutMapping(path="/update")
     public ResponseEntity<CreateRuleResponse> updateRule(@RequestBody CreateRuleRequest request) {
-        return  new ResponseEntity(rulesService.updateRule(request), HttpStatus.CREATED);
+        return  new ResponseEntity(rulesService.updateRule(request), HttpStatus.OK);
     }
 
 
