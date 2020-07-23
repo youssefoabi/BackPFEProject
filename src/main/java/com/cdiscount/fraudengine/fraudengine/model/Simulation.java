@@ -4,20 +4,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "criterionOperatorValue")
+@Document(collection = "simulations")
 public class Simulation {
 
-    private int totalImapact;
+    private int totalImpact;
     private int totalRessources;
-    private Date creationDate;
 
-
-    public int getTotalImapact() {
-        return totalImapact;
+    public int getTotalImpact() {
+        return totalImpact;
     }
 
-    public void setTotalImapact(int totalImapact) {
-        this.totalImapact = totalImapact;
+    public void setTotalImpact(int totalImpact) {
+        this.totalImpact = totalImpact;
     }
 
     public int getTotalRessources() {
@@ -26,13 +24,5 @@ public class Simulation {
 
     public void setTotalRessources(int totalRessources) {
         this.totalRessources = totalRessources;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
     }
 }

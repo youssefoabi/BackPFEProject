@@ -6,16 +6,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 import java.util.List;
 
-@Document(collection = "criterions")
+@Document(collection = "criteria")
 public class CreateCriterionRequest {
     @Id
     private String id;
     private String code;
-    private String name;
-    private Date creationDate;
     private String explanation;
     private List<String> eligibleOperators;
-
+    private Date createdAt;
+    private Date modifiedAt;
 
     public String getId() {
         return id;
@@ -33,22 +32,6 @@ public class CreateCriterionRequest {
         this.code = code;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
     public String getExplanation() {
         return explanation;
     }
@@ -63,5 +46,21 @@ public class CreateCriterionRequest {
 
     public void setEligibleOperators(List<String> eligibleOperators) {
         this.eligibleOperators = eligibleOperators;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getModifiedAt() {
+        return modifiedAt;
+    }
+
+    public void setModifiedAt(Date modifiedAt) {
+        this.modifiedAt = modifiedAt;
     }
 }

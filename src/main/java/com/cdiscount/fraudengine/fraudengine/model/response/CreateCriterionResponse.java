@@ -4,6 +4,7 @@ import com.cdiscount.fraudengine.fraudengine.model.request.CreateCriterionReques
 import com.cdiscount.fraudengine.fraudengine.model.request.CreateRuleRequest;
 
 public class CreateCriterionResponse {
+
     private CreateCriterionRequest response;
 
     public CreateCriterionResponse(CreateCriterionRequest response) {

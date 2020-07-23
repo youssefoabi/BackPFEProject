@@ -4,19 +4,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "simulation")
-public class CriterionOperatorValue {
-    private String criterion;
+@Document(collection = "criteriaValues")
+public class CriteriaValue {
+    private Criterion criterion;
     private String operator;
-    private Date creationDate;
     private String value;
 
-
-    public String getCriterion() {
+    public Criterion getCriterion() {
         return criterion;
     }
 
-    public void setCriterion(String criterion) {
+    public void setCriterion(Criterion criterion) {
         this.criterion = criterion;
     }
 
@@ -26,14 +24,6 @@ public class CriterionOperatorValue {
 
     public void setOperator(String operator) {
         this.operator = operator;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
     }
 
     public String getValue() {

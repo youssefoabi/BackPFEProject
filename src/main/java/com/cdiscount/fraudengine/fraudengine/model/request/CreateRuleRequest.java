@@ -1,35 +1,43 @@
 package com.cdiscount.fraudengine.fraudengine.model.request;
 
 import com.cdiscount.fraudengine.fraudengine.model.Simulation;
-import com.cdiscount.fraudengine.fraudengine.model.CriterionOperatorValue;
+import com.cdiscount.fraudengine.fraudengine.model.CriteriaValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
-@Document(collection = "frauderules")
+@Document(collection = "rules")
 public class CreateRuleRequest {
     @Id
     private String id;
     private String name;
-    private Date creationDate;
-    private int priority;
-    private String referentID;
     private String description;
+    private boolean isActivated;
+    private boolean isValidated;
+    private int priority;
     private String validatedBy;
     private String editedBy;
     private String comment;
-    private boolean isActivated;
-
-
-
     private int version;
-    private boolean isValidated;
     private String editedAction;
-    private List<CriterionOperatorValue> criterionOperatorValues;
+    private List<CriteriaValue> CriteriaValues;
     private List<Simulation> simulations;
+    private Date createdAt;
+    private Date modifiedAt;
+
+    @JsonProperty(value="isActivated")
+    public boolean isActivated() {
+        return isActivated;
+    }
+
+    @JsonProperty(value="isValidated")
+    public boolean isValidated() {
+        return isValidated;
+    }
 
     public String getId() {
         return id;
@@ -47,12 +55,20 @@ public class CreateRuleRequest {
         this.name = name;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setActivated(boolean activated) {
+        isActivated = activated;
+    }
+
+    public void setValidated(boolean validated) {
+        isValidated = validated;
     }
 
     public int getPriority() {
@@ -61,22 +77,6 @@ public class CreateRuleRequest {
 
     public void setPriority(int priority) {
         this.priority = priority;
-    }
-
-    public String getReferentID() {
-        return referentID;
-    }
-
-    public void setReferentID(String referentID) {
-        this.referentID = referentID;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getValidatedBy() {
@@ -103,30 +103,12 @@ public class CreateRuleRequest {
         this.comment = comment;
     }
 
-    @JsonProperty(value="isActivated")
-    public boolean isActivated() {
-        return isActivated;
-    }
-
-    public void setActivated(boolean activated) {
-        isActivated = activated;
-    }
-
     public int getVersion() {
         return version;
     }
 
     public void setVersion(int version) {
         this.version = version;
-    }
-
-    @JsonProperty(value="isValidated")
-    public boolean isValidated() {
-        return isValidated;
-    }
-
-    public void setValidated(boolean validated) {
-        isValidated = validated;
     }
 
     public String getEditedAction() {
@@ -137,12 +119,12 @@ public class CreateRuleRequest {
         this.editedAction = editedAction;
     }
 
-    public List<CriterionOperatorValue> getCriterionOperatorValues() {
-        return criterionOperatorValues;
+    public List<CriteriaValue> getCriteriaValues() {
+        return CriteriaValues;
     }
 
-    public void setCriterionOperatorValues(List<CriterionOperatorValue> criterionOperatorValues) {
-        this.criterionOperatorValues = criterionOperatorValues;
+    public void setCriteriaValues(List<CriteriaValue> criteriaValues) {
+        CriteriaValues = criteriaValues;
     }
 
     public List<Simulation> getSimulations() {
@@ -153,8 +135,19 @@ public class CreateRuleRequest {
         this.simulations = simulations;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
 
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
+    public Date getModifiedAt() {
+        return modifiedAt;
+    }
 
-
+    public void setModifiedAt(Date modifiedAt) {
+        this.modifiedAt = modifiedAt;
+    }
 }

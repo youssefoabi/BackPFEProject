@@ -5,6 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 
 
-public interface ICriterionsRepository extends MongoRepository<CreateCriterionRequest,String> {
+public interface ICriteriaRepository extends MongoRepository<CreateCriterionRequest,String> {
 
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="release" />
+      <option name="name" value="libs-release" />
+      <option name="url" value="http://a99build001.cdweb.biz:8081/artifactory/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Spring Snapshots" />
+      <option name="name" value="Spring Snapshots" />
+      <option name="url" value="http://a99build001.cdweb.biz:8081/artifactory/spring-repo-snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Spring Milestones (releases)" />
+      <option name="name" value="Spring Milestones (releases)" />
+      <option name="url" value="http://a99build001.cdweb.biz:8081/artifactory/spring-repo-milestones" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="snapshots" />
+      <option name="name" value="libs-snapshot" />
+      <option name="url" value="http://a99build001.cdweb.biz:8081/artifactory/libs-snapshot" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Spring Releases" />
+      <option name="name" value="Spring Releases" />
+      <option name="url" value="http://a99build001.cdweb.biz:8081/artifactory/spring-repo-releases" />
+    </remote-repository>
+  </component>
+</project>
