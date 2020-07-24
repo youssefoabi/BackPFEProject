@@ -22,28 +22,27 @@ public class CriteriaController {
     @Autowired
     private ICriteriaService criteriaService;
 
-    @PostMapping(path="/create")
+    @PostMapping(path="")
     public ResponseEntity<CreateCriterionResponse> createCriterion(@RequestBody CreateCriterionRequest request) {
         return  new ResponseEntity(criteriaService.createCriterion(request), HttpStatus.CREATED);
     }
 
-
-    @GetMapping("/findAllCriteria")
-    public ResponseEntity<List<CreateCriterionRequest>> getAllCriteria(){
-        return  new ResponseEntity(criteriaService.getAllCriteria(), HttpStatus.OK);
-    }
-
-    @GetMapping("/findByIdCriterion/{id}")
-    public ResponseEntity<Optional<CreateCriterionRequest>> getCriterionById(@PathVariable String id){
-        return  new ResponseEntity(criteriaService.getCriterionById(id), HttpStatus.OK);
-    }
-
-    @PutMapping(path="/update")
+    @PutMapping(path="")
     public ResponseEntity<CreateCriterionResponse> updateCriterion(@RequestBody CreateCriterionRequest request) {
         return  new ResponseEntity(criteriaService.updateCriterion(request), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @GetMapping("")
+    public ResponseEntity<List<CreateCriterionRequest>> getAllCriteria(){
+        return  new ResponseEntity(criteriaService.getAllCriteria(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<CreateCriterionRequest>> getCriterionById(@PathVariable String id){
+        return  new ResponseEntity(criteriaService.getCriterionById(id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCriterion(@PathVariable String id){
         return  new ResponseEntity(criteriaService.deleteCriterionById(id), HttpStatus.OK);
     }
