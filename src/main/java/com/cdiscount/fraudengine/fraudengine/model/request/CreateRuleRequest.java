@@ -24,7 +24,7 @@ public class CreateRuleRequest {
     private String comment;
     private int version;
     private String editedAction;
-    private List<CriteriaValue> CriteriaValues;
+    private List<CriteriaValue> criteriaValues;
     private List<Simulation> simulations;
     private Date createdAt;
     private Date modifiedAt;
@@ -120,11 +120,11 @@ public class CreateRuleRequest {
     }
 
     public List<CriteriaValue> getCriteriaValues() {
-        return CriteriaValues;
+        return criteriaValues;
     }
 
     public void setCriteriaValues(List<CriteriaValue> criteriaValues) {
-        CriteriaValues = criteriaValues;
+        this.criteriaValues = criteriaValues;
     }
 
     public List<Simulation> getSimulations() {
